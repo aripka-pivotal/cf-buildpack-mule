@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+set -e
+
+if [ $(find $1 -name "*.zip" | wc -l) -eq 1 -a $(unzip -l $1/*.zip 2> /dev/null | grep -c mule-config.xml) -eq 1 ]
+then
+  echo Mule
+else 
+  echo no
+  exit 1
+fi
+
+exit 0

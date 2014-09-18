@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# usage: bin/compile <build-dir> <cache-dir>
+
+# Fail fast, fail hard
+set -eo pipefail
+
+# Directories
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+mkdir -p "$BUILD_DIR" "$CACHE_DIR"
+
+echo $RESOURCES
+ls -alrt $RESOURCES
+
+# Files
+JDK=http://storage.googleapis.com/rippmn/jdk-7u67-linux-x64.gz
+MULE=http://storage.googleapis.com/rippmn/mule-standalone-3.5.0.tar.gz
+
+if [ ! -d $BUILD_DIR/local ]
+then
+  mkdir -p $BUILD_DIR/local
+fi
+
+# Explode the Mule tarball to BUILD_DIR
+if [ ! -e $BUILD_DIR/local/mule-standalone-3.5.0 ]
+then
+  if [ ! -e $CACHE_DIR/$MULE ]
+  then
+    OLDPWD=$(pwd)
+    cd $CACHE_DIR && wget https://repository.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/3.5.0/mule-standalone-3.5.0.tar.gz
+    cd $OLDPWD
+  fi
+  echo "------> Installing Mule ($MULE)..."
+  tar -xzf $CACHE_DIR/$MULE -C $BUILD_DIR/local
+fi
+
+# Explode the OpenJDK tarball to BUILD_DIR
+if [ ! -e $BUILD_DIR/local/jdk1.7.0_67 ]
+then
+  echo "------> Installing JDK ($JDK)..."
+  if [ ! -e $CACHE_DIR/$JDK ]
+  then
+    OLDPWD=$(pwd)
+    cd $CACHE_DIR && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
+    cd $OLDPWD
+  fi
+  tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local
+fi
+
+# Move the app into position
+ln -sf $BUILD_DIR/*.zip $BUILD_DIR/local/mule-standalone-3.5.0/apps/
+
+#export MULE_HOME=$BUILD_DIR/local/mule-standalone-3.5.0
+#export JAVA_HOME=$BUILD_DIR/local/jdk1.7.0_67
+#export PATH=$BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH
+#ls -alrt $BUILD_DIR
+#echo "PATH=$PATH"
+#which mule
+#which jdk1.7.0_67
+#echo Should listen on $PORT
+#mule -M-Dhttp.port=$PORT
+
+echo "Complete."
