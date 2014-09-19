@@ -3,9 +3,9 @@
 cat << EOF
 addons: 
 config_vars:
-   MULE_HOME=\$PWD/local/mule-standalone-3.5.0 
-   JAVA_HOME=\$PWD/local/jdk1.7.0_67 
-   PATH=\$PWD/local/jdk1.7.0_67/bin:\$PWD/local/mule-standalone-3.5.0/bin:\$PATH
+   MULE_HOME=/app/local/mule-standalone-3.5.0 
+   JAVA_HOME=/app/local/jdk1.7.0_67 
+   PATH=/app/local/jdk1.7.0_67/bin:/app/local/mule-standalone-3.5.0/bin:\$PATH
 default_process_types:
    web: mule -M-Dhttp.port=\$PORT; echo $PWD; ruby -run -e httpd . -p \$PORT
 EOF
