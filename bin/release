@@ -10,5 +10,3 @@ config_vars:
 default_process_types:
   web: mule -M-Dhttp.port=\$PORT
 EOF
-echo "complete"
-exit -1
