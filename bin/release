@@ -2,12 +2,8 @@
 # bin/release <build-dir>
 BUILD_DIR=$1
 cat << EOF
-addons: []
-config_vars:{
-  MULE_HOME: $BUILD_DIR/local/mule-standalone-3.5.0
-  JAVA_HOME: $BUILD_DIR/local/jdk1.7.0_67
-  PATH: $BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH
-}
+addons: 
+config_vars:
 default_process_types:
-  web: mule -M-Dhttp.port=\$PORT
+  web: MULE_HOME=$BUILD_DIR/local/mule-standalone-3.5.0 JAVA_HOME=$BUILD_DIR/local/jdk1.7.0_67 PATH=$BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH mule -M-Dhttp.port=\$PORT
 EOF
