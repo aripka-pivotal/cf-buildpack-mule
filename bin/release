@@ -11,5 +11,6 @@ default_process_types:
   web: mule -M-Dhttp.port=$PORT
 EOF
 echo "$PORT" $PORT
+printenv
 echo "complete"
 exit -1
