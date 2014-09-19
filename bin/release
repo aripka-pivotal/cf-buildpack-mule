@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-BUILD_DIR=$1
+BUILD_DIR=ARGV[0]
 cat << EOF
 addons:
 config_vars:
@@ -8,5 +8,5 @@ config_vars:
   JAVA_HOME: $BUILD_DIR/local/jdk1.7.0_67
   PATH: $BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH
 default_process_types:
-  web: echo $PORT 
+  web: mule -M-Dhttp.port=$PORT
 EOF
