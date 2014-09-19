@@ -14,8 +14,10 @@ echo $RESOURCES
 ls -alrt $RESOURCES
 
 # Files
-JDK=http://storage.googleapis.com/rippmn/jdk-7u67-linux-x64.gz
-MULE=http://storage.googleapis.com/rippmn/mule-standalone-3.5.0.tar.gz
+JDK_BLOB=http://storage.googleapis.com/rippmn/jdk-7u67-linux-x64.gz
+JDK=jdk-7u67-linux-x64.gz
+MULE_BLOB=http://storage.googleapis.com/rippmn/mule-standalone-3.5.0.tar.gz
+MULE=mule-standalone-3.5.0.tar.gz
 
 if [ ! -d $BUILD_DIR/local ]
 then
@@ -28,7 +30,8 @@ then
   if [ ! -e $CACHE_DIR/$MULE ]
   then
     OLDPWD=$(pwd)
-    cd $CACHE_DIR && wget https://repository.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/3.5.0/mule-standalone-3.5.0.tar.gz
+    cd $CACHE_DIR && wget $MULE_BLOB
+
     cd $OLDPWD
   fi
   echo "------> Installing Mule ($MULE)..."
@@ -42,7 +45,7 @@ then
   if [ ! -e $CACHE_DIR/$JDK ]
   then
     OLDPWD=$(pwd)
-    cd $CACHE_DIR && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
+    cd $CACHE_DIR && wget $JDK_BLOB 
     cd $OLDPWD
   fi
   tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local
