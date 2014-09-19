@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-echo "addons:" 
-echo "config_vars:"
-echo "   MULE_HOME=\$PWD/local/mule-standalone-3.5.0" 
-echo "   JAVA_HOME=\$PWD/local/jdk1.7.0_67" 
-echo "   PATH=\$PWD/local/jdk1.7.0_67/bin:\$PWD/local/mule-standalone-3.5.0/bin:\$PATH"
-echo "default_process_types:"
-echo "  web: mule -M-Dhttp.port=\$PORT"
+cat << EOF
+addons: 
+config_vars:
+   MULE_HOME=\$PWD/local/mule-standalone-3.5.0 
+   JAVA_HOME=\$PWD/local/jdk1.7.0_67 
+   PATH=\$PWD/local/jdk1.7.0_67/bin:\$PWD/local/mule-standalone-3.5.0/bin:\$PATH
+default_process_types:
+   web: mule -M-Dhttp.port=20120; ruby -run -e httpd . -p \$PORT
+EOF
