@@ -7,5 +7,5 @@ config_vars:
    JAVA_HOME=/app/local/jdk1.7.0_67 
    PATH=/app/local/jdk1.7.0_67/bin:/app/local/mule-standalone-3.5.0/bin:\$PATH
 default_process_types:
-   web: mule -M-Dhttp.port=\$PORT; echo $PWD; ruby -run -e httpd . -p \$PORT
+   web: mule -M-Dhttp.port=\$PORT; echo $PATH; ruby -run -e httpd . -p \$PORT
 EOF
