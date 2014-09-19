@@ -35,7 +35,7 @@ then
     cd $OLDPWD
   fi
   echo "------> Installing Mule ($MULE)..."
-#  tar -xzf $CACHE_DIR/$MULE -C $BUILD_DIR/local
+  tar -xzf $CACHE_DIR/$MULE -C $BUILD_DIR/local
 fi
 
 # Explode the OpenJDK tarball to BUILD_DIR
@@ -48,14 +48,11 @@ then
     cd $CACHE_DIR && wget $JDK_BLOB 
     cd $OLDPWD
   fi
-#  tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local
+  tar -xzf $CACHE_DIR/$JDK -C $BUILD_DIR/local
 fi
 
 # Move the app into position
-#ln -sf $BUILD_DIR/*.zip $BUILD_DIR/local/mule-standalone-3.5.0/apps/
-echo $PORT
-echo "$PORT"
-echo "PORT"
+ln -sf $BUILD_DIR/*.zip $BUILD_DIR/local/mule-standalone-3.5.0/apps/
 #export MULE_HOME=$BUILD_DIR/local/mule-standalone-3.5.0
 #export JAVA_HOME=$BUILD_DIR/local/jdk1.7.0_67
 #export PATH=$BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH
