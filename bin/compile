@@ -35,7 +35,7 @@ then
     cd $OLDPWD
   fi
   echo "------> Installing Mule ($MULE)..."
-  tar -xzf $CACHE_DIR/$MULE -C $BUILD_DIR/local
+#  tar -xzf $CACHE_DIR/$MULE -C $BUILD_DIR/local
 fi
 
 # Explode the OpenJDK tarball to BUILD_DIR
