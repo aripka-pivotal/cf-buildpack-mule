@@ -52,7 +52,7 @@ then
 fi
 
 # Move the app into position
-mv $BUILD_DIR/*.zip $BUILD_DIR/local/mule-standalone-3.5.0/apps/.
+cp $BUILD_DIR/*.zip $BUILD_DIR/local/mule-standalone-3.5.0/apps/.
 #export MULE_HOME=$BUILD_DIR/local/mule-standalone-3.5.0
 #export JAVA_HOME=$BUILD_DIR/local/jdk1.7.0_67
 #export PATH=$BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH
