@@ -52,9 +52,10 @@ then
 fi
 
 # Move the app into position
-for f in *.zip 
-do 
-mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
+for f in $BUILD_DIR/* 
+do
+ echo $f
+#mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
 done
 #export MULE_HOME=$BUILD_DIR/local/mule-standalone-3.5.0
 #export JAVA_HOME=$BUILD_DIR/local/jdk1.7.0_67
