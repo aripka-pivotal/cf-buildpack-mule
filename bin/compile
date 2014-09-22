@@ -58,6 +58,12 @@ do
 #mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
 done
 #export MULE_HOME=$BUILD_DIR/local/mule-standalone-3.5.0
+echo "NOW the root files"
+for f in * 
+do
+ echo $f
+done
+
 #export JAVA_HOME=$BUILD_DIR/local/jdk1.7.0_67
 #export PATH=$BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH
 #ls -alrt $BUILD_DIR
