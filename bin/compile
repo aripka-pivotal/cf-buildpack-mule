@@ -52,25 +52,8 @@ then
 fi
 
 # Move the app into position
-for f in $BUILD_DIR/* 
-do
- echo $f
+mv app/* $BUILD_DIR/local/mule-standalone-3.5.0/apps/
 #mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
-done
-#export MULE_HOME=$BUILD_DIR/local/mule-standalone-3.5.0
-echo "NOW the root files"
-for f in app/* 
-do
- echo $f
-done
 
-#export JAVA_HOME=$BUILD_DIR/local/jdk1.7.0_67
-#export PATH=$BUILD_DIR/local/jdk1.7.0_67/bin:$BUILD_DIR/local/mule-standalone-3.5.0/bin:$PATH
-#ls -alrt $BUILD_DIR
-#echo "PATH=$PATH"
-#which mule
-#which jdk1.7.0_67
-#echo Should listen on $PORT
-#mule -M-Dhttp.port=$PORT
 
 echo "Complete."
