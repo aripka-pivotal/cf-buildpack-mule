@@ -8,18 +8,13 @@ set -eo pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-pwd
-ls
-
 #a place to find the app before we start doing other stuff
 mkdir theApp
 ls
 mv app/* theApp/
 echo "created theApp directory"
-ls theApp
 #create the directories to do work in 
 mkdir -p "$BUILD_DIR" "$CACHE_DIR"
-echo "created directory"
 
 echo $RESOURCES
 ls -alrt $RESOURCES
@@ -69,8 +64,8 @@ do
 echo $f
 done
 ls
-mv $BUILD_DIR/theApp/* $BUILD_DIR/local/mule-standalone-3.5.0/apps/
-rm -rf $BUILD_DIR/theApp
+mv theApp/* $BUILD_DIR/local/mule-standalone-3.5.0/apps/
+rm -rf theApp
 #mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
 
 
