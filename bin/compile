@@ -8,15 +8,15 @@ set -eo pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-echo $BUILD_DIR
 pwd
 ls
 
 #a place to find the app before we start doing other stuff
 mkdir theApp
 ls
-mv $BUILD_DIR/app/* theApp/
+mv app/* theApp/
 echo "created theApp directory"
+ls theApp
 #create the directories to do work in 
 mkdir -p "$BUILD_DIR" "$CACHE_DIR"
 echo "created directory"
