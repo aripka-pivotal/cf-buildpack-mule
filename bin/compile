@@ -11,8 +11,10 @@ CACHE_DIR=$2
 #a place to find the app before we start doing other stuff
 mkdir -p "$BUILD_DIR/theApp"
 mv $BUILD_DIR/app/* $BUILD_DIR/theApp/
+echo "created theApp directory"
 #create the directories to do work in 
 mkdir -p "$BUILD_DIR" "$CACHE_DIR"
+echo "created directory"
 
 echo $RESOURCES
 ls -alrt $RESOURCES
