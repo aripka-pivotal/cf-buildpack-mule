@@ -4,6 +4,15 @@
 # Fail fast, fail hard
 set -eo pipefail
 
+echo $1
+echo $2
+
+for f in *
+do
+echo $f
+done
+
+
 # Directories
 BUILD_DIR=$1
 CACHE_DIR=$2
