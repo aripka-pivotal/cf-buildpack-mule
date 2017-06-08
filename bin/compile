@@ -76,5 +76,8 @@ mv theApp/* $BUILD_DIR/local/mule-standalone-3.5.0/apps/
 rm -rf theApp
 #mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
 
+echo "Mule apps Directory contents"
+
+ls -alrt $BUILD_DIR/local/mule-standalone-3.5.0/apps/
 
 echo "Complete."
