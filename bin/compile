@@ -30,8 +30,8 @@ ls -alrt $RESOURCES
 # Files
 JDK_BLOB=https://storage.googleapis.com/rippmn/jdk-7u80-linux-x64.tar.gz
 JDK=jdk-7u80-linux-x64.tar.gz
-MULE_BLOB=http://storage.googleapis.com/rippmn/mule-standalone-3.5.0.tar.gz
-MULE=mule-standalone-3.5.0.tar.gz
+MULE_BLOB=http://storage.googleapis.com/rippmn/mule-standalone-3.3.0.tar.gz
+MULE=mule-standalone-3.3.0.tar.gz
 
 if [ ! -d $BUILD_DIR/local ]
 then
@@ -39,7 +39,7 @@ then
 fi
 
 # Explode the Mule tarball to BUILD_DIR
-if [ ! -e $BUILD_DIR/local/mule-standalone-3.5.0 ]
+if [ ! -e $BUILD_DIR/local/mule-standalone-3.3.0 ]
 then
   if [ ! -e $CACHE_DIR/$MULE ]
   then
@@ -72,12 +72,12 @@ do
 echo $f
 done
 ls
-mv theApp/* $BUILD_DIR/local/mule-standalone-3.5.0/apps/
+mv theApp/* $BUILD_DIR/local/mule-standalone-3.3.0/apps/
 rm -rf theApp
 #mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
 
 echo "Mule apps Directory contents"
 
-ls -alrt $BUILD_DIR/local/mule-standalone-3.5.0/apps/
+ls -alrt $BUILD_DIR/local/mule-standalone-3.3.0/apps/
 
 echo "Complete."
