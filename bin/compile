@@ -4,24 +4,32 @@
 # Fail fast, fail hard
 set -eo pipefail
 
-# Directories
+ Directories
 BUILD_DIR=$1
 CACHE_DIR=$2
 
+echo "****ENV VARS****"
+echo $TEST_URL
+echo $LOAD_SCRIPT
+echo "****END ENV VARS****"
+
+
 #a place to find the app before we start doing other stuff
 mkdir theApp
-ls
-mv app/* theApp/
+ls $BUILD_DIR
+echo post build directory
+
+mv $BUILD_DIR/* theApp/
 echo "created theApp directory"
-#create the directories to do work in 
+#create the directories to do work in
 mkdir -p "$BUILD_DIR" "$CACHE_DIR"
 
 echo $RESOURCES
 ls -alrt $RESOURCES
 
 # Files
-JDK_BLOB=http://storage.googleapis.com/rippmn/jdk-7u67-linux-x64.gz
-JDK=jdk-7u67-linux-x64.gz
+JDK_BLOB=https://storage.cloud.google.com/rippmn/jdk-7u80-linux-x64.tar.gz
+JDK=jdk-7u80-linux-x64.tar.gz
 MULE_BLOB=http://storage.googleapis.com/rippmn/mule-standalone-3.5.0.tar.gz
 MULE=mule-standalone-3.5.0.tar.gz
 
