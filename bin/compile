@@ -72,6 +72,11 @@ do
 echo $f
 done
 ls
+
+ls -alrt theApp
+
+echo "-------------------"
+
 mv theApp/* $BUILD_DIR/local/mule-standalone-3.3.0/apps/
 rm -rf theApp
 #mv $BUILD_DIR/$f $BUILD_DIR/local/mule-standalone-3.5.0/apps/$f
