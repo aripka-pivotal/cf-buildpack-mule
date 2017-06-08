@@ -4,7 +4,7 @@
 # Fail fast, fail hard
 set -eo pipefail
 
- Directories
+# Directories
 BUILD_DIR=$1
 CACHE_DIR=$2
 
