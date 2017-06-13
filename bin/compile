@@ -28,9 +28,9 @@ echo $RESOURCES
 ls -alrt $RESOURCES
 
 # Files
-JDK_BLOB=https://storage.googleapis.com/rippmn/jdk-7u80-linux-x64.tar.gz
+JDK_BLOB=https://jar-host.apps.pivotalmn.com/jdk-7u80-linux-x64.tar.gz
 JDK=jdk-7u80-linux-x64.tar.gz
-MULE_BLOB=http://storage.googleapis.com/rippmn/mule-standalone-3.5.0.tar.gz
+MULE_BLOB=https://jar-host.apps.pivotalmn.com/mule-standalone-3.5.0.tar.gz
 MULE=mule-standalone-3.5.0.tar.gz
 
 if [ ! -d $BUILD_DIR/local ]
