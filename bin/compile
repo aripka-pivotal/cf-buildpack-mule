@@ -28,9 +28,9 @@ echo $RESOURCES
 ls -alrt $RESOURCES
 
 # Files
-JDK_BLOB=http://jar-host.local.pcfdev.io/jdk-7u80-linux-x64.tar.gz
+JDK_BLOB=http://jar-host.cfapps.io/jdk-7u80-linux-x64.tar.gz
 JDK=jdk-7u80-linux-x64.tar.gz
-MULE_BLOB=http://jar-host.local.pcfdev.io/mule-standalone-3.5.0.tar.gz
+MULE_BLOB=http://jar-host.cfapps.io/mule-standalone-3.5.0.tar.gz
 MULE=mule-standalone-3.5.0.tar.gz
 
 if [ ! -d $BUILD_DIR/local ]
